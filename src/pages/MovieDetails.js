@@ -17,12 +17,10 @@ const MovieDetails = () => {
 
   return (
     <>
-      //{' '}
+      {' '}
       <Link to={location?.state?.from || '/'}>
-        // <button type="button">Go back</button>
-        //{' '}
+        <button type="button">Go back</button>{' '}
       </Link>
-      //
       <img
         src={
           movieInfo.poster_path
