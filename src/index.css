@@ -13,3 +13,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+li {
+  list-style-type: none;
+}
+button {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.5;
+  display: inline-block;
+  padding: 6px 18px;
+  border: solid 1px;
+  background-color: yellow;
+  border-radius: 30px;
+}
