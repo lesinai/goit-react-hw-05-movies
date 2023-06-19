@@ -1,5 +1,6 @@
 import { getMovieById } from 'Service/serviceApi';
-import { useEffect, useState } from 'react';
+
+import { useEffect, useState, useRef } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 const defaultImg =
   'https://www.shutterstock.com/image-vector/vector-sign-no-entry-basic-600w-1690188991.jpg';
@@ -8,6 +9,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieInfo, setmovieInfo] = useState(null);
   const location = useLocation();
+  const searchRef = useRef(location?.state?.from);
   useEffect(() => {
     getMovieById(movieId).then(data => {
       setmovieInfo(data);
@@ -18,7 +20,7 @@ const MovieDetails = () => {
   return (
     <>
       {' '}
-      <Link to={location?.state?.from || '/'}>
+      <Link to={`/movies${searchRef.current.search}` || '/'}>
         <button type="button">Go back</button>{' '}
       </Link>
       <img
@@ -34,7 +36,9 @@ const MovieDetails = () => {
       <p>{movieInfo.overview}</p>
       <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" state={{ from: location }}>
+            Cast
+          </Link>
         </li>
         <li>
           <Link to="reviews">Reviews</Link>

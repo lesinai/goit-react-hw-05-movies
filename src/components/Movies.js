@@ -4,7 +4,7 @@ import { SearchMovies } from 'components/SearchMovise';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-export const Movies = () => {
+const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const movieId = searchParams.get('query');
   const [movies, setMovieId] = useState([]);
@@ -22,3 +22,4 @@ export const Movies = () => {
     </div>
   );
 };
+export default Movies;

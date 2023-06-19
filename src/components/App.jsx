@@ -1,11 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import Home from 'pages/Home';
-import { Movies } from './Movies';
-import MovieDetails from 'pages/MovieDetails';
-import { Reviews } from 'pages/Reviews';
-import { Cast } from 'pages/Cast';
 
+import { Cast } from 'pages/Cast';
+import { lazy } from 'react';
+
+const MovieDetails = lazy(() => import('pages/MovieDetails'));
+const Reviews = lazy(() => import('pages/Reviews'));
+const Movies = lazy(() => import('./Movies'));
 export const App = () => {
   return (
     <Routes>
